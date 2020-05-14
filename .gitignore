@@ -1,3 +1,7 @@
+# Project files
+rbcs_vs_sickles/*.h5
+rbcs_vs_sickles/*.npy
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
