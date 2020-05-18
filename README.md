@@ -39,7 +39,14 @@ The implementation can be found [here](https://github.com/Mathuiss/digital_image
 
 ### RBCs vs Sickles
 
-
+To run assignment 2 you must execute the following commands:
+```
+cd rbcs_vs_sickles
+python preprocess.py
+python train.py
+python evaluate.py
+python predict.py
+```
 
 
 
