@@ -22,7 +22,7 @@ The implementation for this can be found [here](https://github.com/Mathuiss/digi
 
 We have 2 sets of images of test tubes. We must succesfully turn the image so that the test tube stands up straight. We must also crop out at least 10 test tubes in each set.
 
-The approach we take is that we use the ```np.Canny()``` functionb to detect lines in the image. This way we see what the important parts are for each picture. This works pretty well but we still see the edges of the standard, which is holding the test tube. I have written an algorithm that detects gaps. We know the gap between the test tube and the standard is more than 50 pixels. If we measure the gap we gan measure where the test tube begins and where the test tube ends. This work is all done in the function ```def find_edges(img_src):``` which returns a dictionary such as ```{'Upper': 322, 'Lower': 136, 'Left': 134, 'Right': 185}```.
+The approach is that we use the ```np.Canny()``` functionb to detect lines in the image. This way we see what the important parts are for each picture. This works pretty well but we still see the edges of the standard, which is holding the test tube. I have written an algorithm that detects gaps. We know the gap between the test tube and the standard is more than 50 pixels. If we measure the gap we gan measure where the test tube begins and where the test tube ends. This work is all done in the function ```def find_edges(img_src):``` which returns a dictionary such as ```{'Upper': 322, 'Lower': 136, 'Left': 134, 'Right': 185}```.
 
 We can then use this dictionary to cut out the image using array slicing: ```return img_gray[boundaries["Lower"]:boundaries["Upper"] + 1, boundaries["Left"]:boundaries["Right"] + 1]```
 
