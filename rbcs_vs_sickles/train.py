@@ -15,8 +15,8 @@ model = Sequential()
 model.add(Conv2D(32, kernel_size=(25, 25), padding="same", activation="relu", input_shape=(255, 255, 1)))
 model.add(MaxPooling2D(pool_size=(25, 25)))
 
-model.add(Conv2D(32, kernel_size=(25, 25), padding="same", activation="relu"))
-model.add(MaxPooling2D(64, pool_size=(25, 25)))
+model.add(Conv2D(64, kernel_size=(10, 10), padding="same", activation="relu"))
+model.add(MaxPooling2D(pool_size=(10, 10)))
 
 model.add(Dropout(0.2))
 model.add(Flatten())
