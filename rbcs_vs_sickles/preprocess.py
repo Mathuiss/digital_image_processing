@@ -18,11 +18,7 @@ def load_img_src(folder):
 
 
 def box_cell(arr_img):
-    # plt.imshow(arr_img, cmap="gray")
-    # plt.show()
     return cv2.Canny(arr_img, 30, 80)
-    # plt.imshow(arr_canny, cmap="gray")
-    # plt.show()
 
 
 def preprocess(dict_img_src):
@@ -48,7 +44,6 @@ def preprocess(dict_img_src):
     random.shuffle(pile)
 
     # We create and empty np array for x (data) and y (label)
-    # x_pile = np.empty((len(pile), 255, 255))
     x_pile = np.empty((0, 255, 255))
     y_pile = np.array([])
 

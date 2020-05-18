@@ -18,7 +18,6 @@ arr_img_src = os.listdir("predict")
 for img_src in arr_img_src:
     print(f"Predicting: {img_src}")
     arr_img = preprocess(f"predict/{img_src}")
-    # arr_img = np.array([arr_img])
     arr_img = arr_img.reshape((-1, 255, 255, 1))
     y = model.predict(arr_img)
     print(y)
