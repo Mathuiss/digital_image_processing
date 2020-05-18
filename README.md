@@ -1,10 +1,8 @@
 # Digital Image Processing
 DIP Assignments
-- Assignment 1
- * Filters
- * Test Tubes
-- Assignment 2
- * RBCs vs Sickles
+- Filters
+- Test Tubes
+- RBCs vs Sickles
 
 ## Assiggment 1:
 
