@@ -1,6 +1,7 @@
 # Project files
 rbcs_vs_sickles/*.h5
 rbcs_vs_sickles/*.npy
+rbcs_vs_sickles/predict/*
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
