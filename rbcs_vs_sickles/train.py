@@ -15,8 +15,8 @@ model = Sequential()
 model.add(Conv2D(32, kernel_size=(25, 25), padding="same", activation="relu", input_shape=(255, 255, 1)))
 model.add(MaxPooling2D(pool_size=(25, 25)))
 
-model.add(Conv2D(64, kernel_size=(20, 20), padding="same", activation="relu"))
-model.add(MaxPooling2D(pool_size=(10, 10)))
+model.add(Conv2D(32, kernel_size=(25, 25), padding="same", activation="relu"))
+model.add(MaxPooling2D(64, pool_size=(25, 25)))
 
 model.add(Dropout(0.2))
 model.add(Flatten())
@@ -34,13 +34,13 @@ model.add(Dense(1, activation="sigmoid"))
 model.compile(loss="binary_crossentropy", optimizer="adam", metrics=["accuracy"])
 
 # Training the model using training data x and saving the metrics to the arr_metrics variable
-arr_metrics = model.fit(x_train, y_train, batch_size=25, epochs=25, validation_data=(x_val, y_val))
+arr_metrics = model.fit(x_train, y_train, batch_size=25, epochs=6, validation_data=(x_val, y_val))
 
 # Now we evaluate the model using the validation data y
 model.evaluate(x_val, y_val)
 
 # Saving the model in project root directory
-model.save("rbc_model3.h5")
+model.save("rbc_model.h5")
 
 print(arr_metrics.history.keys())
 
@@ -56,5 +56,5 @@ plt.plot(arr_metrics.history["loss"])
 plt.plot(arr_metrics.history["val_loss"])
 plt.ylabel("Loss")
 plt.xlabel("Epoch")
-plt.legend("Traing", "Val")
+plt.legend(["Traing", "Val"])
 plt.show()
