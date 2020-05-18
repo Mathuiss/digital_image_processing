@@ -17,6 +17,14 @@ def load_img_src(folder):
     return arr_img_src
 
 
+def box_cell(arr_img):
+    # plt.imshow(arr_img, cmap="gray")
+    # plt.show()
+    return cv2.Canny(arr_img, 30, 80)
+    # plt.imshow(arr_canny, cmap="gray")
+    # plt.show()
+
+
 def preprocess(dict_img_src):
     pile = []
 
@@ -31,8 +39,9 @@ def preprocess(dict_img_src):
                 label = int(0)
 
             arr_img = cv2.imread(img_src, cv2.IMREAD_REDUCED_GRAYSCALE_8)
-            # /255 to normalize this image data
-            arr_img = cv2.resize(arr_img, (255, 255)) / 255
+            arr_img = cv2.resize(arr_img, (255, 255))
+            arr_img = box_cell(arr_img)
+            arr_img = arr_img / 255
             pile.append(np.array([arr_img, label]))
 
     # We shuffle the pile to create a random order of healthy and sick cells
