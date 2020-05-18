@@ -25,9 +25,8 @@ model.add(Dense(1500, activation="relu"))
 model.add(Dense(750, activation="relu"))
 model.add(Dense(350, activation="relu"))
 model.add(Dropout(0.5))
-# 1 for firing or not firing, sigmoid because
+# 1 For firing or not firing, sigmoid because we wantbinary classification
 model.add(Dense(1, activation="sigmoid"))
-# binary classification
 
 
 # Compiling the model using binary_crossentropy and the adam optimizer
