@@ -12,6 +12,5 @@ model = load_model("rbc_model.h5")
 arr_metrics = model.evaluate(x_val, y_val)
 # arr_metrics2 = model2.evaluate(x_val, y_val)
 
-# plt.plot(arr_metrics)
 print(f"Model 1 val loss: {arr_metrics[0]}, Model 1 val accuracy: {arr_metrics[1]}")
 # print(f"Model 2 val loss: {arr_metrics2[0]}, Model 2 val accuracy: {arr_metrics2[1]}")
