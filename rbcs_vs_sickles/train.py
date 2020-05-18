@@ -36,7 +36,8 @@ model.compile(loss="binary_crossentropy", optimizer="adam", metrics=["accuracy"]
 arr_metrics = model.fit(x_train, y_train, batch_size=25, epochs=6, validation_data=(x_val, y_val))
 
 # Now we evaluate the model using the validation data y
-model.evaluate(x_val, y_val)
+eval = model.evaluate(x_val, y_val)
+print(eval)
 
 # Saving the model in project root directory
 model.save("rbc_model.h5")
