@@ -147,5 +147,5 @@ model.add(Dense(1, activation="sigmoid"))
 
 We continue to compile the model with the ```adam``` optimizer and we are going to calculate loss for ```binary_crossentropy```.
 ```python```
-model.compile(loss="binary_crossentropy", optimizer="adam", metrics=\["accuracy"])
+model.compile(loss="binary_crossentropy", optimizer="adam", metrics=["accuracy"])
 ```
