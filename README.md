@@ -19,7 +19,7 @@ for i in range(1, 5):
     speckle(img_name)
 ```
 
-The implementation for this can be found [here](https://github.com/Mathuiss/digital_image_processing/blob/master/test_tubes/Assignment1%20-%20Filters/filters.ipynb)
+The implementation for this can be found [here](https://github.com/Mathuiss/digital_image_processing/blob/master/test_tubes/Assignment1%20-%20Filters/filters.ipynb).
 
 ### Test Tubes
 
@@ -33,7 +33,7 @@ This work is all done in the function ```def find_edges(img_src):``` which retur
 
 We can then use this dictionary to cut out the image using array slicing: ```return img_gray[boundaries["Lower"]:boundaries["Upper"] + 1, boundaries["Left"]:boundaries["Right"] + 1]```
 
-The implementation can be found [here](https://github.com/Mathuiss/digital_image_processing/blob/master/test_tubes/Assignment2%20-%20TestTubes/test_tubes.ipynb)
+The implementation can be found [here](https://github.com/Mathuiss/digital_image_processing/blob/master/test_tubes/Assignment2%20-%20TestTubes/test_tubes.ipynb).
 
 ## Assignment 2
 
@@ -63,9 +63,9 @@ During the preprocessing we are going to to do the following things:
 8. We reshape the numpy array so that the input layer of the neural network can process the images
 9. We save the data set to the hard drive
 
-This procedure is all fairly straight forward. The images are loaded using ```cv2.imread(img_src, cv2.IMREAD_REDUCED_GRAYSCALE_8)```, to filter out the background noise. The images are then resized to ```cv2.resize(arr_img, (255, 255))```, in order to create a lighter load on the network. Furthermore we use ```cv2.Canny(arr_img, 30, 80)```, to detect the cells in the image. Lastly we normalize the image so that the network can handle this array, with ```arr_img = arr_img / 255```.
+This procedure is all fairly straight forward. The images are loaded using ```cv2.imread(img_src, cv2.IMREAD_REDUCED_GRAYSCALE_8)```, to filter out the background noise. The images are then resized to ```cv2.resize(arr_img, (255, 255))```, in order to create a lighter load on the network. Furthermore we use ```cv2.Canny(arr_img, 30, 80)```, to detect the cells in the image. Lastly we normalize the image so that the network can handle this array with ```arr_img = arr_img / 255```.
 
-After we shuffle the pile we load the images onto 2 new piles, named: ```x_pile``` and ```y_pile```. This work is done like so:
+After we shuffle the pile, we load the images onto 2 new piles, named: ```x_pile``` and ```y_pile```. This work is done like so:
 ```
 for i in pile:
         x_pile = np.append(x_pile, [i[0]], axis=0)
@@ -87,4 +87,9 @@ With the above instructions completed we can continue to divide the data in trai
 ```
 
 Finnaly we reshape using the ```.reshape((-1, 255, 255, 1))``` command on both ```x_train``` and ```x_val```
+
+The implementation can be found [here](https://github.com/Mathuiss/digital_image_processing/blob/master/rbcs_vs_sickles/preprocess.py).
+
+#### Training:
+
 
