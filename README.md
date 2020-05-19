@@ -183,3 +183,19 @@ plt.xlabel("Epoch")
 plt.legend(["Traing", "Val"])
 plt.show()
 ```
+
+The implementation can be found [here](https://github.com/Mathuiss/digital_image_processing/blob/master/rbcs_vs_sickles/train.py)
+
+
+#### Evaluate
+
+The ```evaluate.py``` script is straight forward. We can compare 2 models we have previously created.
+The script uses ```load_model(model_name)``` to load the model, and ```model.evaluate()``` to evaluate the models.
+
+The implementation can be found [here](https://github.com/Mathuiss/digital_image_processing/blob/master/rbcs_vs_sickles/evaluate.py)
+
+#### Predict
+
+The ```predict.py``` script will look at all the pictures in the ```predict/``` folder and it will predict if the cells are healthy or sick. The script calls ```y = model.predict(arr_img)``` on each image in the folder. When ```y``` is close to ```1``` the cell is healthy. When ```y``` is close to ```0``` the cell is sick.
+
+The implementation can be found [here](https://github.com/Mathuiss/digital_image_processing/blob/master/rbcs_vs_sickles/predict.py)
