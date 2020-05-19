@@ -68,8 +68,8 @@ This procedure is all fairly straight forward. The images are loaded using ```cv
 After we shuffle the pile, we load the images onto 2 new piles, named: ```x_pile``` and ```y_pile```. This work is done like so:
 ```python
 for i in pile:
-        x_pile = np.append(x_pile, [i[0]], axis=0)
-        y_pile = np.append(y_pile, i[1])
+    x_pile = np.append(x_pile, [i[0]], axis=0)
+    y_pile = np.append(y_pile, i[1])
 ```
 
 Throughout the preprocessing script we use a constant to tell the program how much validation data we want. This is done like so:
@@ -77,13 +77,13 @@ Throughout the preprocessing script we use a constant to tell the program how mu
 
 With the above instructions completed we can continue to divide the data in training and test data, using array slicing:
 ```python
-    # Training validation data and labels
-    x_train = x_pile[:int((1 - TRAIN_VAL_FACTOR) * len(x_pile))]  # Images
-    y_train = y_pile[:int((1 - TRAIN_VAL_FACTOR) * len(y_pile))]  # Labels
+# Training validation data and labels
+x_train = x_pile[:int((1 - TRAIN_VAL_FACTOR) * len(x_pile))]  # Images
+y_train = y_pile[:int((1 - TRAIN_VAL_FACTOR) * len(y_pile))]  # Labels
 
-    # Validation data and labels
-    x_val = x_pile[int((1 - TRAIN_VAL_FACTOR) * len(y_pile)):]  # Images
-    y_val = y_pile[int((1 - TRAIN_VAL_FACTOR) * len(y_pile)):]  # Labels
+# Validation data and labels
+x_val = x_pile[int((1 - TRAIN_VAL_FACTOR) * len(y_pile)):]  # Images
+y_val = y_pile[int((1 - TRAIN_VAL_FACTOR) * len(y_pile)):]  # Labels
 ```
 
 Finnaly we reshape using the ```.reshape((-1, 255, 255, 1))``` command on both ```x_train``` and ```x_val```
