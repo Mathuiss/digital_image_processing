@@ -53,7 +53,38 @@ python predict.py
 In this assignment we have a data set consisting of simages of healthy and sick red blood cells. These images are in their respective folders: ```healthy/``` and ```sick/```. In order to train an AI with keras we must preprocess the data so that we have a tupe of images and labels like so: ```(x_train, y_train), (x_test, y_test) = preprocess()```.
 
 During the preprocessing we are going to to do the following things:
-1. Load all healthy and sick images in a dictionary
-2. We create a big pile with all the images and their assignmed labels
+1. We load all healthy and sick images in a dictionary
+2. We use the Canny edge detection algorithm to detect the cells in the image
+3. We create a big pile with all the images and their assigned labels
+4. We shuffle the pile so that there is a random order of healthy and sick images and labels
+5. We create a new pile for the images and a new pile for the labels
+6. We place the images on the image pile and the labels on the labels pile
+7. We slice both piles with a ratio of 80/20 to create x_train, y_train, x_val and y_val
+8. We reshape the numpy array so that the input layer of the neural network can process the images
+9. We save the data set to the hard drive
 
+This procedure is all fairly straight forward. The images are loaded using ```cv2.imread(img_src, cv2.IMREAD_REDUCED_GRAYSCALE_8)```, to filter out the background noise. The images are then resized to ```cv2.resize(arr_img, (255, 255))```, in order to create a lighter load on the network. Furthermore we use ```cv2.Canny(arr_img, 30, 80)```, to detect the cells in the image. Lastly we normalize the image so that the network can handle this array, with ```arr_img = arr_img / 255```.
+
+After we shuffle the pile we load the images onto 2 new piles, named: ```x_pile``` and ```y_pile```. This work is done like so:
+```
+for i in pile:
+        x_pile = np.append(x_pile, [i[0]], axis=0)
+        y_pile = np.append(y_pile, i[1])
+```
+
+Throughout the preprocessing script we use a constant to tell the program how much validation data we want. This is done like so:
+```TRAIN_VAL_FACTOR = 0.2```
+
+With the above instructions completed we can continue to divide the data in training and test data, using array slicing:
+```
+ # # Training validation data and labels
+    x_train = x_pile[:int((1 - TRAIN_VAL_FACTOR) * len(x_pile))]  # Images
+    y_train = y_pile[:int((1 - TRAIN_VAL_FACTOR) * len(y_pile))]  # Labels
+
+    # Validation data and labels
+    x_val = x_pile[int((1 - TRAIN_VAL_FACTOR) * len(y_pile)):]  # Images
+    y_val = y_pile[int((1 - TRAIN_VAL_FACTOR) * len(y_pile)):]  # Labels
+```
+
+Finnaly we reshape using the ```.reshape((-1, 255, 255, 1))``` command on both ```x_train``` and ```x_val```
 
