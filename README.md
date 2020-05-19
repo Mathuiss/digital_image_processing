@@ -149,3 +149,37 @@ We continue to compile the model with the ```adam``` optimizer and we are going 
 ```python
 model.compile(loss="binary_crossentropy", optimizer="adam", metrics=["accuracy"])
 ```
+
+Now it's time to train the model. We are using a ```batch_size=25``` to save RAM. At first I trained with ```25``` epochs, but overfitting occured only after ```6``` epochs. This is why we will train for ```6``` epochs. We will also save the training metrics in ``arr_metrics```.
+```python
+arr_metrics = model.fit(x_train, y_train, batch_size=25, epochs=6, validation_data=(x_val, y_val))
+```
+
+We will evaluate the model using the test data. This will return the loss and the validation accuracy.
+```python
+eval = model.evaluate(x_val, y_val)
+print(eval)
+```
+
+We will save the model to the hard drive and we will print the names of the measurements we have saved.
+```python
+model.save("rbc_model.h5")
+print(arr_metrics.history.keys())
+```
+
+Finally we will plot the metrics so that we can see how well our model trained and performed.
+```python
+plt.plot(arr_metrics.history["accuracy"])
+plt.plot(arr_metrics.history["val_accuracy"])
+plt.ylabel("Accuracy")
+plt.xlabel("Epoch")
+plt.legend(["Train", "Val"])
+plt.show()
+
+plt.plot(arr_metrics.history["loss"])
+plt.plot(arr_metrics.history["val_loss"])
+plt.ylabel("Loss")
+plt.xlabel("Epoch")
+plt.legend(["Traing", "Val"])
+plt.show()
+```
