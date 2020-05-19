@@ -10,7 +10,7 @@ DIP Assignments
 
 We have 4 images of rockets, named rocket1 to rocket 4. We simplt loop through this file and apply all filters with ther respective functions.
 
-```
+```python
 for i in range(1, 5):
     img_name = f"rocket{i}.jpeg"
     salt_pepper(img_name, 0.08)
@@ -25,7 +25,7 @@ The implementation for this can be found [here](https://github.com/Mathuiss/digi
 
 We have 2 sets of images of test tubes. We must turn the image so that the test tube stands up straight. We must also succesfully crop out at least 10 test tubes in each set.
 
-The approach is that we use the ```np.Canny()``` function to detect lines in the image. This way we see what the important parts are for each picture. This works pretty well but we still see the edges of the standard, which is holding the test tube.
+The approach is that we use the ```python np.Canny()``` function to detect lines in the image. This way we see what the important parts are for each picture. This works pretty well but we still see the edges of the standard, which is holding the test tube.
 
 I have written an algorithm that detects gaps. We know the gap between the test tube and the standard is more than 50 pixels. If we measure the gap we gan measure where the test tube begins and where the test tube ends.
 
