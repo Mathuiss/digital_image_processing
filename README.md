@@ -132,7 +132,7 @@ model.add(Dropout(0.2))
 model.add(Flatten())
 ```
 
-We start with a fully connected layer with ```1500``` outputs. We gradually work our way down to ```350``` inputs to reduce the models complexity. We use ```activation="rely"``` because wewant to activate the neurons where the dotproduct of ```i``` and ```w``` is positive. Finally we add a dropout layer with a dropout factor of ```0.5```. This is a large dropout, but I read it is recommended for convolutional neural networks. I tried ```0.3``` and ```0.4``` as well but I got the best results with ```0.5```.
+We start with a fully connected layer with ```1500``` outputs. We gradually work our way down to ```350``` inputs to reduce the models complexity. We use ```activation="rely"``` because wewant to activate the neurons where the dotproduct of ```inputs``` and ```weights``` is positive. Finally we add a dropout layer with a dropout factor of ```0.5```. This is a large dropout, but I read it is recommended for convolutional neural networks. I tried ```0.3``` and ```0.4``` as well but I got the best results with ```0.5```.
 ```python
 model.add(Dense(1500, activation="relu"))
 model.add(Dense(750, activation="relu"))
