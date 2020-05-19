@@ -92,4 +92,27 @@ The implementation can be found [here](https://github.com/Mathuiss/digital_image
 
 #### Training:
 
+In the ```train.py``` script we are going to take the following steps:
+1. We load the training data, training labels, test data and test labels
+2. We are going to build a sequential model
+3. We are going to compile the model
+4. We are going to train the model
+5. We are going to evaluate the model
+6. We are going to plot the results and metrics
 
+Because we saved the data set to the hard drive in the ```preprocess.py``` script we can now load the data set with:
+```
+x_train = np.load("x_train.npy")
+y_train = np.load("y_train.npy")
+x_val = np.load("x_val.npy")
+y_val = np.load("y_val.npy")
+```
+
+We initialize the model as: ```model = Sequential()```
+
+We are going to build a model with a 2d convolutional input layer. We use 32 filters and a kernel size of ```25 x 25```. We do this because the cells in the image are about this size. We hope the convolutional layer will pick up on the change between healthy and sick cells in the image. The padding we use is ```padding="same"```, because we want the entire picture in the convolutional layer. We use ```activation="relu"```, because this is a good activation function if you want to capture the most important features. The input shape of the image is ```input_shape=(255, 255, 1)```. The image is ```255 x 255``` times ```1``` channel.
+```
+model.add(Conv2D(32, kernel_size=(25, 25), padding="same", activation="relu", input_shape=(255, 255, 1)))
+```
+
+After this we will use a pooling layer
