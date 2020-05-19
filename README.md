@@ -23,7 +23,7 @@ The implementation for this can be found [here](https://github.com/Mathuiss/digi
 
 ### Test Tubes
 
-We have 2 sets of images of test tubes. We must succesfully turn the image so that the test tube stands up straight. We must also crop out at least 10 test tubes in each set.
+We have 2 sets of images of test tubes. We must turn the image so that the test tube stands up straight. We must also succesfully crop out at least 10 test tubes in each set.
 
 The approach is that we use the ```np.Canny()``` function to detect lines in the image. This way we see what the important parts are for each picture. This works pretty well but we still see the edges of the standard, which is holding the test tube.
 
