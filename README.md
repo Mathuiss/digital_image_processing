@@ -50,7 +50,7 @@ python predict.py
 
 #### Preprocessing:
 
-In this assignment we have a data set consisting of simages of healthy and sick red blood cells. These images are in their respective folders: ```healthy/``` and ```sick/```. In order to train an AI with keras we must preprocess the data so that we have a tupe of images and labels like so: ```(x_train, y_train), (x_test, y_test) = preprocess()```.
+In this assignment we have a data set consisting of simages of healthy and sick red blood cells. These images are in their respective folders: ```healthy/``` and ```sick/```. In order to train an AI with keras we must preprocess the data so that we have a tuple of images and labels like so: ```(x_train, y_train), (x_test, y_test) = preprocess()```.
 
 During the preprocessing we are going to to do the following things:
 1. We load all healthy and sick images in a dictionary
