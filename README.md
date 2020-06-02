@@ -4,7 +4,7 @@ DIP Assignments
 - Test Tubes
 - RBCs vs Sickles
 
-## Assiggment 1:
+## Assiggment 1: Filters & Test Tubes
 
 ### Filters:
 
@@ -35,7 +35,7 @@ We can then use this dictionary to cut out the image using array slicing: ```ret
 
 The implementation can be found [here](https://github.com/Mathuiss/digital_image_processing/blob/master/test_tubes/Assignment2%20-%20TestTubes/test_tubes.ipynb).
 
-## Assignment 2
+## Assignment 2: TBCs vs Sickles
 
 ### RBCs vs Sickles
 
